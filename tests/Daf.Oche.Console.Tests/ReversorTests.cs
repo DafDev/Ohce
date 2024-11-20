@@ -11,7 +11,7 @@ public class ReversorTests
     public void GivenWordWhenReverseShouldReturnReversedWordAndIfPallindrome(string input,string expected,bool isExpectedPallindrome)
     {
         // When
-        (string actual, bool isActualPallindrome) = _sut.Reverse(input);
+        (string actual, bool isActualPallindrome) = Reversor.Reverse(input);
 
         // Should
         actual.Should().Be(expected);
