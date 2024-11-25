@@ -1,8 +1,8 @@
 ﻿using Daf.Oche.Domain.Greet;
 using Daf.Oche.Domain.ReverseWords;
 
-namespace Daf.Oche.Domain;
-public class Oche(IGreet greeter, IReverseWords wordsReversor ,string name):IOche
+namespace Daf.Oche.Cli;
+public class Oche(IGreet greeter, IReverseWords wordsReversor, string name)
 {
     private const string STOP = "Stop!";
     private const string PALLINDROME = "Bonita Palabra!";

@@ -1,5 +1,4 @@
-﻿
-namespace Daf.Oche.Domain;
+﻿namespace Daf.Oche.Domain.ReverseWords;
 public class WordsReversor : IReverseWords
 {
     public (string actual, bool isActualPallindrome) Reverse(string input)

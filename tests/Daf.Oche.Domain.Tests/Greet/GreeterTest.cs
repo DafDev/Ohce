@@ -1,7 +1,7 @@
-using Daf.Oche.Domain.Tests.TestData;
+using Daf.Oche.Domain.Greet;
 using FluentAssertions;
 
-namespace Daf.Oche.Domain.Tests;
+namespace Daf.Oche.Domain.Tests.Greet;
 
 public class GreeterTest
 {
@@ -11,7 +11,7 @@ public class GreeterTest
     public void GivenNameAndTImeOfDayWhenHolaShouldReturnProperGreeting(string name, TimeOnly timeOfDay, string expected)
     {
         // When
-        var actual = _sut.Hola(name,timeOfDay);
+        var actual = _sut.Hola(name, timeOfDay);
 
         // Should
         actual.Should().Be(expected);

@@ -1,4 +1,4 @@
-﻿namespace Daf.Oche.Domain;
+﻿namespace Daf.Oche.Domain.Greet;
 public interface IGreet
 {
     string Adios(string name);

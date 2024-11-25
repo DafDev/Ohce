@@ -1,4 +1,4 @@
-﻿namespace Daf.Oche.Domain;
+﻿namespace Daf.Oche.Domain.ReverseWords;
 
 public interface IReverseWords
 {
