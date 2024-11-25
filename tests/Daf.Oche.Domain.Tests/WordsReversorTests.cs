@@ -1,17 +1,17 @@
-﻿using Daf.Oche.Console.Tests.TestData;
+﻿using Daf.Oche.Domain.Tests.TestData;
 using FluentAssertions;
 
-namespace Daf.Oche.Console.Tests;
-public class ReversorTests
+namespace Daf.Oche.Domain.Tests;
+public class WordsReversorTests
 {
-    private readonly Reversor _sut = new();
+    private readonly WordsReversor _sut = new();
 
     [Theory]
     [ClassData(typeof(ReversorTestsData))]
     public void GivenWordWhenReverseShouldReturnReversedWordAndIfPallindrome(string input,string expected,bool isExpectedPallindrome)
     {
         // When
-        (string actual, bool isActualPallindrome) = Reversor.Reverse(input);
+        (string actual, bool isActualPallindrome) = _sut.Reverse(input);
 
         // Should
         actual.Should().Be(expected);

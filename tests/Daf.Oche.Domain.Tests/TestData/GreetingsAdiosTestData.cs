@@ -1,4 +1,4 @@
-﻿namespace Daf.Oche.Console.Tests.TestData;
+﻿namespace Daf.Oche.Domain.Tests.TestData;
 
 internal class GreetingsAdiosTestData : TheoryData<string, string>
 {

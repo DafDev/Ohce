@@ -1,10 +1,9 @@
-﻿
-namespace Daf.Oche.Console;
-public class Greetings
+﻿namespace Daf.Oche.Domain;
+internal class Greeter() : IGreet
 {
-    public static string Adios(string name) => $"Adios {name}";
+    public string Adios(string name) => $"Adios {name}";
 
-    public static string Hola(string name, TimeOnly timeOfDay)
+    public string Hola(string name,TimeOnly timeOfDay)
     {
         var momentOfDay = timeOfDay.Hour switch
         {

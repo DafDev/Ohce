@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Daf.Oche.Console\Daf.Oche.Console.csproj" />
+    <ProjectReference Include="..\..\src\Daf.Oche.Domain\Daf.Oche.Domain.csproj" />
   </ItemGroup>
 
 </Project>

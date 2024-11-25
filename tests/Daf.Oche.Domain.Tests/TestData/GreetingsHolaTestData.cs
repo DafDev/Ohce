@@ -1,4 +1,4 @@
-﻿namespace Daf.Oche.Console.Tests.TestData;
+﻿namespace Daf.Oche.Domain.Tests.TestData;
 internal class GreetingsHolaTestData : TheoryData<string, TimeOnly, string>
 {
     public GreetingsHolaTestData()

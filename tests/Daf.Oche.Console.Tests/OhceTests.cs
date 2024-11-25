@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 
-namespace Daf.Oche.Console.Tests;
+namespace Daf.Oche.Cli.Tests;
 public class OhceTests
 {
     [Fact]

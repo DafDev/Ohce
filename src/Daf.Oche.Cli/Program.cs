@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Daf.Oche.Console;
+using Daf.Oche.Cli;
 
 var name = args[0] ?? string.Empty;
 var oche = new Oche(name);
