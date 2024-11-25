@@ -8,4 +8,4 @@ var services = new ServiceCollection()
     .AddSingleton<Oche>();
 var name = args[0] ?? string.Empty;
 var oche = services.BuildServiceProvider().GetRequiredService<Oche>();
-oche.Execute();
+oche.Execute(name);

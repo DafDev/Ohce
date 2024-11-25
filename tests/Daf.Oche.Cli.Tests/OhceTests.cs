@@ -30,9 +30,9 @@ public class OhceTests
             Adios Marco
 
             """;
-        var sut = new Oche(_greeter.Object,_wordsReversor.Object,name);
+        var sut = new Oche(_greeter.Object, _wordsReversor.Object);
         // When
-        sut.Execute();
+        sut.Execute(name);
 
         // Should
         consoleOutput.ToString().Should().Be(expected);

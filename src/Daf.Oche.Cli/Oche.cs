@@ -2,11 +2,11 @@
 using Daf.Oche.Domain.ReverseWords;
 
 namespace Daf.Oche.Cli;
-public class Oche(IGreet greeter, IReverseWords wordsReversor, string name)
+public class Oche(IGreet greeter, IReverseWords wordsReversor)
 {
     private const string STOP = "Stop!";
     private const string PALLINDROME = "Bonita Palabra!";
-    public void Execute()
+    public void Execute(string name)
     {
         var timeOfDay = TimeOnly.FromDateTime(DateTime.Now);
         Console.WriteLine(greeter.Hola(name, timeOfDay));
