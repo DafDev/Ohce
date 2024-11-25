@@ -1,4 +1,5 @@
-﻿using Daf.Oche.Domain;
+﻿using Daf.Oche.Domain.Greet;
+using Daf.Oche.Domain.ReverseWords;
 
 namespace Daf.Oche.Cli;
 public class Oche(IGreet greeter, IReverseWords wordsReversor, string name)
