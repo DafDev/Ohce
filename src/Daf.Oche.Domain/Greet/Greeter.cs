@@ -1,9 +1,9 @@
 ﻿namespace Daf.Oche.Domain.Greet;
 internal class Greeter() : IGreet
 {
-    public string Adios(string name) => $"Adios {name}";
+    public async Task<string> Adios(string name) => await Task.FromResult($"Adios {name}");
 
-    public string Hola(string name, TimeOnly timeOfDay)
+    public async Task<string> Hola(string name, TimeOnly timeOfDay)
     {
         var momentOfDay = timeOfDay.Hour switch
         {
@@ -11,6 +11,6 @@ internal class Greeter() : IGreet
             >= 12 and < 20 => "Buenas tardes",
             >= 20 or < 6 => "Buenas noches",
         };
-        return $"{momentOfDay} {name}!";
+        return await Task.FromResult($"{momentOfDay} {name}!");
     }
 }

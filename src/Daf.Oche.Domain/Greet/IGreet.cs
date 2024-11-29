@@ -1,6 +1,6 @@
 ﻿namespace Daf.Oche.Domain.Greet;
 public interface IGreet
 {
-    string Adios(string name);
-    string Hola(string name, TimeOnly timeOfDay);
+    Task<string> Adios(string name);
+    Task<string> Hola(string name, TimeOnly timeOfDay);
 }

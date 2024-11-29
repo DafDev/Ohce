@@ -13,8 +13,8 @@ public class OhceTests
     public void GivenPallindromDisplayBuenasPalabras()
     {
         // Given
-        var name = "Marco";
-        var inputs = """
+        const string name = "Marco";
+        const string inputs = """
             oto
             Stop!
             """;
@@ -23,7 +23,7 @@ public class OhceTests
         var consoleOutput = new StringWriter();
         Console.SetOut(consoleOutput);
         Console.SetIn(consoleInput);
-        var expected = """
+        const string expected = """
             Buenas tardes Marco!
             oto
             Bonita Palabra!
@@ -40,8 +40,8 @@ public class OhceTests
 
     private void SetupDependencies(string name)
     {
-        _greeter.Setup(greet => greet.Hola(name, It.IsAny<TimeOnly>())).Returns($"Buenas tardes {name}!");
-        _greeter.Setup(greet => greet.Adios(name)).Returns($"Adios {name}");
-        _wordsReversor.Setup(reversor => reversor.Reverse(It.IsAny<string>())).Returns(("oto", true));
+        _greeter.Setup(greet => greet.Hola(name, It.IsAny<TimeOnly>())).ReturnsAsync($"Buenas tardes {name}!");
+        _greeter.Setup(greet => greet.Adios(name)).ReturnsAsync($"Adios {name}");
+        _wordsReversor.Setup(reversor => reversor.Reverse(It.IsAny<string>())).ReturnsAsync(("oto", true));
     }
 }

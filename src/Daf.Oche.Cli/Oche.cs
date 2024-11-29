@@ -4,26 +4,25 @@ using Daf.Oche.Domain.ReverseWords;
 namespace Daf.Oche.Cli;
 public class Oche(IGreet greeter, IReverseWords wordsReversor)
 {
-    private const string STOP = "Stop!";
-    private const string PALLINDROME = "Bonita Palabra!";
-    public void Execute(string name)
+    private const string Stop = "Stop!";
+    private const string Pallindrome = "Bonita Palabra!";
+    public async Task Execute(string name)
     {
         var timeOfDay = TimeOnly.FromDateTime(DateTime.Now);
-        Console.WriteLine(greeter.Hola(name, timeOfDay));
-        string word;
+        Console.WriteLine(await greeter.Hola(name, timeOfDay));
         do
         {
-            word = Console.ReadLine() ?? string.Empty;
-            if (word == STOP)
+            string word = Console.ReadLine() ?? string.Empty;
+            if (word == Stop)
             {
-                Console.WriteLine(greeter.Adios(name));
+                Console.WriteLine(await greeter.Adios(name));
                 break;
             }
 
-            (string reverse, bool isPallindrome) = wordsReversor.Reverse(word);
+            (string reverse, bool isPallindrome) = await wordsReversor.Reverse(word);
             Console.WriteLine(reverse);
             if (isPallindrome)
-                Console.WriteLine(PALLINDROME);
+                Console.WriteLine(Pallindrome);
         } while (true);
     }
 }

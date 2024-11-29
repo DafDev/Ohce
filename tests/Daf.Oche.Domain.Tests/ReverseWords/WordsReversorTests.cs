@@ -9,10 +9,10 @@ public class WordsReversorTests
 
     [Theory]
     [ClassData(typeof(ReversorTestsData))]
-    public void GivenWordWhenReverseShouldReturnReversedWordAndIfPallindrome(string input, string expected, bool isExpectedPallindrome)
+    public async Task GivenWordWhenReverseShouldReturnReversedWordAndIfPallindrome(string input, string expected, bool isExpectedPallindrome)
     {
         // When
-        (string actual, bool isActualPallindrome) = _sut.Reverse(input);
+        (string actual, bool isActualPallindrome) = await _sut.Reverse(input);
 
         // Should
         actual.Should().Be(expected);

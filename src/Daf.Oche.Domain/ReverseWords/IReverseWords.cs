@@ -2,5 +2,5 @@
 
 public interface IReverseWords
 {
-    (string actual, bool isActualPallindrome) Reverse(string input);
+    Task<(string actual, bool isActualPallindrome)> Reverse(string input);
 }
