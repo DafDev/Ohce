@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daf.Oche.Cli", "src\Daf.Och
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daf.Oche.Cli.Tests", "tests\Daf.Oche.Cli.Tests\Daf.Oche.Cli.Tests.csproj", "{2D31D37E-8088-4117-AAC5-057471903CDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daf.Oche.Api.Tests", "tests\Daf.Oche.Api.Tests\Daf.Oche.Api.Tests.csproj", "{7416D757-F680-40F8-A444-D57EBDBB41C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{2D31D37E-8088-4117-AAC5-057471903CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D31D37E-8088-4117-AAC5-057471903CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D31D37E-8088-4117-AAC5-057471903CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7416D757-F680-40F8-A444-D57EBDBB41C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7416D757-F680-40F8-A444-D57EBDBB41C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7416D757-F680-40F8-A444-D57EBDBB41C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7416D757-F680-40F8-A444-D57EBDBB41C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{9733DEFA-A468-4FCA-BCE0-55F7D5CC6D3D} = {F33AECF4-1519-4B6A-BDD3-3515022DD24A}
 		{EA60B979-D10A-40DC-BFAE-5A48FAEDD1A8} = {278304AF-2984-476E-8C25-A957C87D01E5}
 		{2D31D37E-8088-4117-AAC5-057471903CDC} = {F33AECF4-1519-4B6A-BDD3-3515022DD24A}
+		{7416D757-F680-40F8-A444-D57EBDBB41C7} = {F33AECF4-1519-4B6A-BDD3-3515022DD24A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41C7210E-4D3F-4896-84CC-581CFDF4F601}
