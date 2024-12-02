@@ -10,7 +10,7 @@ public class GreeterEndpointMapper : IDefineEndpoints
     public void DefineEndpoints(WebApplication app)
     {
         app.MapGet("/greetings/hola", Hola);
-        app.MapGet("/greetings/adios", Hola);
+        app.MapGet("/greetings/adios", Adios);
     }
     
     public async Task<Ok<string>> Hola([FromQuery]string name, [FromServices] IGreet greeter ,[FromServices] TimeProvider provider)

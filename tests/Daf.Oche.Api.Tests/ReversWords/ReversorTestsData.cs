@@ -1,14 +1,16 @@
-﻿namespace Daf.Oche.Api.Tests.ReversWords;
-public class ReversorTestsData : TheoryData<string?, string, bool>
+﻿using Daf.Oche.Api.ReverseWords.Model;
+
+namespace Daf.Oche.Api.Tests.ReversWords;
+public class ReversorTestsData : TheoryData<string?, ReversedWord>
 {
     public ReversorTestsData()
     {
-        Add("",string.Empty,false);
-        Add("  ",string.Empty,false);
-        Add(null,string.Empty,false);
-        Add("hola","aloh",false);
-        Add("gracias","saicarg",false);
-        Add("oto","oto",true);
-        Add("Oto","otO",false);
+        Add("",new(string.Empty,false));
+        Add("  ",new(string.Empty,false));
+        Add(null,new(string.Empty,false));
+        Add("hola",new("aloh",false));
+        Add("gracias",new("saicarg",false));
+        Add("oto",new("oto",true));
+        Add("Oto",new("otO",false));
     }
 }
