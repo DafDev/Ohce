@@ -1,0 +1,18 @@
+@api_HostAddress = http://localhost:5233
+
+GET {{api_HostAddress}}/greetings/hola?name=Max
+Accept: application/json
+
+###
+GET {{api_HostAddress}}/greetings/adios?name=Max
+Accept: application/json
+
+###
+GET {{api_HostAddress}}/reversor/reverse?input=action
+Accept: application/json
+
+###
+GET {{api_HostAddress}}/reversor/reverse?input=kayak
+Accept: application/json
+
+###
