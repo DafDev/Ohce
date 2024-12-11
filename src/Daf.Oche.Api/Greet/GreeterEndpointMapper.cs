@@ -9,12 +9,17 @@ public class GreeterEndpointMapper : IDefineEndpoints
 {
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("/greetings/hola", Hola);
-        app.MapGet("/greetings/adios", Adios);
+        app.MapGet("/greetings/hola", Hola)
+            .WithTags("Greetings")
+            .WithDescription("Greets you with your name");
+        app.MapGet("/greetings/adios", Adios).WithTags("Greetings");
     }
     
-    public async Task<Ok<string>> Hola([FromQuery]string name, [FromServices] IGreet greeter ,[FromServices] TimeProvider provider)
+    public async Task<Results<Ok<string>,NotFound>> Hola([FromQuery]string name, [FromServices] IGreet greeter ,[FromServices] TimeProvider provider)
     {
+        if (string.IsNullOrWhiteSpace(name))
+            return TypedResults.NotFound();
+        
         var results = await greeter.Hola(name, TimeOnly.FromTimeSpan(provider.GetLocalNow().TimeOfDay));
         return TypedResults.Ok(results);
     }

@@ -1,6 +1,7 @@
 ﻿using Daf.Oche.Api.Greet;
 using Daf.Oche.Domain.Greet;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Time.Testing;
 using Moq;
 
@@ -20,10 +21,14 @@ public class GreeterEndpointMapperTests
         _timeProvider.SetUtcNow(new DateTimeOffset(new DateOnly(2024, 11, 30), timeOfDay,TimeSpan.Zero));
         _timeProvider.SetLocalTimeZone(TimeZoneInfo.Utc);
         _greeter.Setup(greet => greet.Hola(name, timeOfDay)).ReturnsAsync(expected);
-        //When
+        
+        // When
         var actual = await _sut.Hola(name, _greeter.Object, _timeProvider);
-        //Should
-        actual.Value.Should().Be(expected);
+        
+        // Should
+        var result = actual.Result.As<Ok<string>>();
+        result.Should().NotBeNull();
+        result.Value.Should().Be(expected);
     }
     
     [Theory]

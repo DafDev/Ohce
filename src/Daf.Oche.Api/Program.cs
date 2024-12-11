@@ -1,6 +1,7 @@
 using Daf.Oche.Api.Endpoints;
 using Daf.Oche.Api.IoC;
 using Daf.Oche.Domain.IoC;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +19,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
-
 app.UseHttpsRedirection();
 app.UseEndpointDefinitions();
 
