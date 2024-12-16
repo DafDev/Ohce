@@ -10,7 +10,10 @@ public class WordsReversorEndpointMapper : IDefineEndpoints
 {
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("/reversor/reverse",Reverse);
+        app.MapGet("/reversor/reverse",Reverse)
+            .WithName(nameof(Reverse))
+            .WithTags("Reversor")
+            .WithDescription("Reverses words and detects palindromes");
     }
     
     public async Task<Ok<ReversedWord>> Reverse([FromQuery] string input,[FromServices] IReverseWords reversor)
