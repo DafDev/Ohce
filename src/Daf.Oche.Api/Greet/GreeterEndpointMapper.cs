@@ -7,14 +7,24 @@ namespace Daf.Oche.Api.Greet;
 
 public class GreeterEndpointMapper : IDefineEndpoints
 {
+    private const string Tags = "Greetings";
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("/greetings/hola", Hola);
-        app.MapGet("/greetings/adios", Adios);
+        app.MapGet("/greetings/hola", Hola)
+            .WithName(nameof(Hola))
+            .WithTags(Tags)
+            .WithDescription("Greets you with your name but in Spanish.");
+        app.MapGet("/greetings/adios", Adios)
+            .WithName(nameof(Adios))
+            .WithTags(Tags)
+            .WithDescription("Bids you good bye in Spanish.");
     }
     
-    public async Task<Ok<string>> Hola([FromQuery]string name, [FromServices] IGreet greeter ,[FromServices] TimeProvider provider)
+    public async Task<Results<Ok<string>,NotFound>> Hola([FromQuery]string name, [FromServices] IGreet greeter ,[FromServices] TimeProvider provider)
     {
+        if (string.IsNullOrWhiteSpace(name))
+            return TypedResults.NotFound();
+        
         var results = await greeter.Hola(name, TimeOnly.FromTimeSpan(provider.GetLocalNow().TimeOfDay));
         return TypedResults.Ok(results);
     }
