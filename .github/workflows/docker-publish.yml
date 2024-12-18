@@ -3,26 +3,46 @@ name: Docker Image build
 on:
   push:
     branches: [ "develop" ]
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
 
   build:
     name: Build Docker image and push to repositories
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
   
-      - name: login to hub  
+      - name: login to docker hub  
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
           
-      - name: Build and push
+      - name: login to github container registry  
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }} 
+
+      - name: Build and push docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: afahd/ocheapp:latest
+
+  
+  deploy:
+    name: Deploy image on railroad
+    needs: build         
+    runs-on: ubuntu-latest
