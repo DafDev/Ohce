@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-
+    name: Build and test the application
     runs-on: ubuntu-latest
 
     steps:
