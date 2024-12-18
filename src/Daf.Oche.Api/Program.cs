@@ -15,12 +15,10 @@ builder.Services
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
+// Configure http 
+app.MapOpenApi();
+app.MapScalarApiReference();
+
 app.UseHttpsRedirection();
 app.UseEndpointDefinitions();
 
